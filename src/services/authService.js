@@ -4,6 +4,8 @@ import config from "../config.json";
 
 const tokenKey = "token";
 
+http.setJwt(getJwt());
+
 export async function login(email, password) {
   const { data: jwt } = await http.post(config.authEndpoint, {
     email,
@@ -29,9 +31,14 @@ export function getCurrentUser() {
   }
 }
 
+export function getJwt() {
+  return localStorage.getItem(tokenKey);
+}
+
 export default {
   login,
   loginWithJwt,
   logout,
   getCurrentUser,
+  getJwt,
 };
