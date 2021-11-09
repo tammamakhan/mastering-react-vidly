@@ -110,8 +110,8 @@ class Movies extends Component {
     const { totalCount, data: movies } = this.getPagedData();
 
     return (
-      <div className="row">
-        <div className="col-3">
+      <div className="row" style={{ paddingLeft: "5%" }}>
+        <div className="col-2">
           <ListGroup
             groups={genres}
             currentGroup={selectedGenre}
